@@ -1,4 +1,5 @@
 import React from 'react';
+import "../style/createPost.scss";
 
 function CreatePost() {
     return <div className = "createPostPage">
@@ -12,6 +13,7 @@ function CreatePost() {
                 <label>Post:</label>
                 <textarea placeholder = "Post..."/>
             </div>
+            <button>Submit</button>
         </div>
     </div>;
 }
