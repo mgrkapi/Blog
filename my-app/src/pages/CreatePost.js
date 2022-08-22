@@ -1,5 +1,4 @@
 import React from 'react';
-import "../style/createPost.scss";
 
 function CreatePost() {
     return <div className = "createPostPage">

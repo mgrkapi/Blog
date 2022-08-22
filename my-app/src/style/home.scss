@@ -1,0 +1,23 @@
+@import 'src/style/root';
+
+.App {
+  text-align: center;
+}
+
+nav {
+  background: linear-gradient(135deg, rgb(231, 211, 214) 0%, rgba(245, 125, 144, 0.58) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+}
+
+a {
+  text-align: center;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
