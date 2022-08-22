@@ -10,7 +10,7 @@ import '../src/style/main.scss';
 
 function App() {
     //function that says if the user is logged in or not
-    const[isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(false);
 
 
     const signUserOut = () => {
@@ -24,15 +24,21 @@ function App() {
         <Router>
             <nav>
                 <Link to="/">Home</Link>
-                <Link to="/createPost">Post</Link>
+
                 {/*//if user is logged in, don't show login lin, just show log out button*/}
-                {!isAuth ? <Link to="/login">Login</Link> : <button onClick={signUserOut}>Log Out</button>}
+                {!isAuth ? (
+                    <Link to="/login">Login</Link>) : (
+                    <>
+                        <Link to="/createPost">Post</Link>
+                        <button onClick={signUserOut}>Log Out</button>
+                    </>
+                )}
             </nav>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/createpost" element={<CreatePost/>}/>
+                <Route path="/createpost" element={<CreatePost isAuth={isAuth} />}/>
                 {/*// passing a state as a prop to the login component*/}
-                <Route path="/login" element={<Login setIsAuth = {setIsAuth}/>}/>
+                <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}/>
             </Routes>
         </Router>
     )
