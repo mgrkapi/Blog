@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {addDoc, collection} from 'firebase/firestore';
 import {auth, db} from "../firebase";
 import {useNavigate} from 'react-router-dom';
+import ImageUpload from "../components/ImageUpload";
 
 function CreatePost({isAuth}) {
 
@@ -12,11 +13,11 @@ function CreatePost({isAuth}) {
     const postsCollectionRef = collection(db, "posts");
     let navigate = useNavigate();
 
-    const createPost = async() => {
+    const createPost = async () => {
         await addDoc(postsCollectionRef, {
             title,
             postText,
-            author:{name: auth.currentUser.displayName, id: auth.currentUser.uid}
+            author: {name: auth.currentUser.displayName, id: auth.currentUser.uid}
         });
         navigate("/");
     };
@@ -47,6 +48,7 @@ function CreatePost({isAuth}) {
                           }}
                 />
             </div>
+            <ImageUpload/>
             <button onClick={createPost}>Submit</button>
         </div>
     </div>;
