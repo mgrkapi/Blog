@@ -10,7 +10,7 @@ import '../src/style/main.scss';
 
 function App() {
     //function that says if the user is logged in or not
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
 
 
     const signUserOut = () => {
@@ -35,7 +35,7 @@ function App() {
                 )}
             </nav>
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route path="/" element={<Home isAuth = {isAuth} />}/>
                 <Route path="/createpost" element={<CreatePost isAuth={isAuth} />}/>
                 {/*// passing a state as a prop to the login component*/}
                 <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}/>
