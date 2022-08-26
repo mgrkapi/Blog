@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
-import {auth,db} from "../firebase";
+import {auth, db} from "../firebase";
 
 function Home({isAuth}) {
     const [postLists, setPostList] = useState([]);
     const postsCollectionRef = collection(db, "posts");
+
 
     const deletePost = async (id) => {
         const postDoc = doc(db, 'posts', id);
