@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
-import {auth, db} from "../firebase";
+import {auth, db, storage} from "../firebase";
+import {getDownloadURL, listAll, ref} from "firebase/storage";
+import "../style/home.scss";
 
 function Home({isAuth}) {
     const [postLists, setPostList] = useState([]);
@@ -12,13 +14,23 @@ function Home({isAuth}) {
         await deleteDoc(postDoc);
     };
 
+    const [imageList, setImageList] = useState([]);
+    const imageListRef = ref(storage, "images/");
+
     useEffect(() => {
         const getPosts = async () => {
             const data = await getDocs(postsCollectionRef);
             setPostList(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         };
         getPosts();
-    }, [deletePost]);
+        listAll(imageListRef).then((response) => {
+            response.items.forEach((item) => {
+                getDownloadURL(item).then((url) => {
+                    setImageList((prev) => [...prev, url])
+                })
+            });
+        });
+    }, []);
 
 
     return <div className="homePage">{postLists.map((post) => {
@@ -35,10 +47,13 @@ function Home({isAuth}) {
                     }}>
                         &#128465;
                 </button>
-                )};
+                )}
             </div>
         </div>
         <div className="postTextContainer">{post.postText}</div>
+            {imageList.map((url, id) => {
+            return <img src = {url} key = {id}/>
+            })}
         <h3>@{post.author.name}</h3>
     </div>
     })}</div>
