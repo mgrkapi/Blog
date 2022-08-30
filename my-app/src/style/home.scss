@@ -1,5 +1,15 @@
 @import 'src/style/root';
 
+.home-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  margin: 20px;
+  .sidebar, .homePage {
+    padding: 20px;
+  }
+}
+
 .App {
   text-align: center;
 }
