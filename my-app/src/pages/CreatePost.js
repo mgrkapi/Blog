@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {addDoc, collection} from 'firebase/firestore';
-import {auth, db} from "../firebase";
+import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
+import {auth, db, storage} from "../firebase";
 import {useNavigate} from 'react-router-dom';
-import ImageUpload from "../components/ImageUpload";
 
 function CreatePost({isAuth}) {
 
     const [title, setTitle] = useState("")
     const [postText, setPostText] = useState("")
+    const [image, setImage] = useState(null)
+    const [imgUrl, setImgUrl] = useState("")
 
     //submit the data to firestore and store it in the database
     const postsCollectionRef = collection(db, "posts");
@@ -17,10 +19,63 @@ function CreatePost({isAuth}) {
         await addDoc(postsCollectionRef, {
             title,
             postText,
-            author: {name: auth.currentUser.displayName, id: auth.currentUser.uid}
+            author: {name: auth.currentUser.displayName, id: auth.currentUser.uid},
+            imgUrl
         });
         navigate("/");
     };
+
+    const changeImage = (e) => {
+        if (e.target.files[0]) {
+            setImage(e.target.files[0]);
+            uploadImage(e.target.files[0]);
+        }
+    }
+
+    const uploadImage = (file) => {
+        console.log(file)
+        console.log(image)
+        const metadata = {
+            contentType: 'image/jpeg' || 'image/png'
+        };
+
+// Upload file and metadata to the object 'images/'
+        const storageRef = ref(storage, 'images/' + file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+
+// Listen for state changes, errors, and completion of the upload.
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                const progress = Number(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                    case 'paused':
+                        console.log('Upload is paused');
+                        break;
+                    case 'running':
+                        console.log('Upload is running');
+                        break;
+                }
+            },
+            (error) => {
+                switch (error.code) {
+                    case 'storage/unauthorized':
+                        break;
+                    case 'storage/canceled':
+                        break;
+                    case 'storage/unknown':
+                        break;
+                }
+            },
+            () => {
+                // Upload completed successfully, now we can get the download URL
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log('File available at', downloadURL);
+                    return setImgUrl(downloadURL);
+                });
+            });
+    }
 
     useEffect(() => {
         if (!isAuth) {
@@ -48,7 +103,7 @@ function CreatePost({isAuth}) {
                           }}
                 />
             </div>
-            <ImageUpload/>
+            <input type="file" onChange={changeImage}/>
             <button onClick={createPost}>Submit</button>
         </div>
     </div>;
