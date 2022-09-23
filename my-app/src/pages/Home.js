@@ -27,14 +27,11 @@ function Home({isAuth}) {
         <>
             <div className="home-container">
                 <SideBar className="sidebar"/>
-                <div className="homePage">
-
-                    {postLists.map((post) => {
-                        return <div className="post" key={post.id}>
-                            <div className="postHeader">
-                                <div className="title">
-                                    <h1>{post.title}</h1>
-                                </div>
+                <div className="home-main">
+                    <div className="homePage">
+                        {postLists.map((post) => {
+                            return (
+                            <div className="post" key={post.id}>
                                 <div className="deletePost">
                                     {isAuth && post.author.id === auth.currentUser.uid && (
                                         <button
@@ -45,13 +42,21 @@ function Home({isAuth}) {
                                         </button>
                                     )}
                                 </div>
-                            </div>
-                            <div className="postTextContainer">{post.postText}</div>
-                            {post.imgUrl && <img src={post.imgUrl} alt="postImage"/>}
-                            <h3>@{post.author.name}</h3>
-                        </div>
-                    })}
+                                {post.imgUrl && <img src={post.imgUrl} alt="postImage"/>}
+                                <div className= "post-content">
+                                <div className="postHeader">
+                                    <div className="title">
+                                        <h1>{post.title}</h1>
+                                    </div>
 
+                                </div>
+                                <div className="postTextContainer">{post.postText.substring(0, 350)}</div>
+                                <h3>@{post.author.name}</h3>
+                                </div>
+                            </div>
+                            )})}
+
+                    </div>
                 </div>
             </div>
         </>

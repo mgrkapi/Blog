@@ -1,6 +1,14 @@
-.side-bar__content {
+.side-bar {
+  max-width: 280px;
   background-color: beige;
-  border-radius: 5px;
+  height: 100vh;
+}
+
+.side-bar__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   img {
     border-radius: 50%;
     padding: 10px;
@@ -13,6 +21,6 @@
   article {
     line-height: 1.3rem;
     padding: 10px;
-    text-align: justify;
+    text-align: center;
   }
 }
