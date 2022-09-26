@@ -1,65 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
-import {auth, db} from "../firebase";
-import "../style/home.scss";
+// import React, {useEffect, useState} from 'react';
+// import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
+// import {auth, db} from "../firebase";
+// import "../style/home.scss";
+
+import React from "react";
 import SideBar from "../components/SideBar";
+import Post from "../components/Post";
 
-function Home({isAuth}) {
-    const [postLists, setPostList] = useState([]);
-    const postsCollectionRef = collection(db, "posts");
-
-
-    const deletePost = async (id) => {
-        const postDoc = doc(db, 'posts', id);
-        await deleteDoc(postDoc);
-    };
-
-    useEffect(() => {
-        const getPosts = async () => {
-            const data = await getDocs(postsCollectionRef);
-            setPostList(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        };
-        getPosts();
-
-    }, []);
-
+function Home() {
     return (
-        <>
-            <div className="home-container">
-                <SideBar className="sidebar"/>
-                <div className="home-main">
-                    <div className="homePage">
-                        {postLists.map((post) => {
-                            return (
-                            <div className="post" key={post.id}>
-                                <div className="deletePost">
-                                    {isAuth && post.author.id === auth.currentUser.uid && (
-                                        <button
-                                            onClick={() => {
-                                                deletePost(post.id);
-                                            }}>
-                                            &#128465;
-                                        </button>
-                                    )}
-                                </div>
-                                {post.imgUrl && <img src={post.imgUrl} alt="postImage"/>}
-                                <div className= "post-content">
-                                <div className="postHeader">
-                                    <div className="title">
-                                        <h1>{post.title}</h1>
-                                    </div>
-
-                                </div>
-                                <div className="postTextContainer">{post.postText.substring(0, 350)}</div>
-                                <h3>@{post.author.name}</h3>
-                                </div>
-                            </div>
-                            )})}
-
-                    </div>
-                </div>
-            </div>
-        </>
+        <div className= "home-container">
+            <SideBar/>
+            <Post/>
+        </div>
     )
 }
 

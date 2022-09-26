@@ -1,59 +1,5 @@
-@import 'src/style/root';
-
 .home-container {
   display: flex;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  margin: 20px;
-  .sidebar, .homePage {
-    padding: 20px;
-  }
-}
 
-.App {
-  text-align: center;
-}
-
-nav {
-  background: linear-gradient(135deg, rgb(231, 211, 214) 0%, rgba(245, 125, 144, 0.58) 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  width: 100vw;
-}
-
-a {
-  text-align: center;
-  margin-right: 10px;
-  font-size: 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-.post {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px;
-  img {
-    width: 150px;
-    max-height: 100px;
-    margin: 20px;
-    border-radius: 5px;
-  }
-  .title {
-    font-size: 0.8rem;
-    font-weight: bold;
-  }
-  .postTextContainer {
-    font-size: 1rem;
-  }
-  .post-content {
-    max-width: 75%;
-  }
-}
