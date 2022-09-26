@@ -1,7 +1,11 @@
+@import 'root';
+
 .side-bar {
   max-width: 280px;
   background-color: beige;
   height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 .side-bar__content {
@@ -9,18 +13,55 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  img {
+  margin-top: 20px;
+
+  .side-bar__picture {
     border-radius: 50%;
-    padding: 10px;
+    padding: 15px;
   }
   .side-bar__header {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
+    font-family: $font-second;
     padding: 10px;
+    text-align: center;
+    line-height: 1.5rem;
   }
   article {
     line-height: 1.3rem;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
+    margin-bottom: 10px;
   }
+}
+
+.side-bar__Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .side-bar__title {
+    padding: 5px;
+    border-top: 1px solid #a7a4a4;
+    border-bottom: 1px solid #a7a4a4;
+    font-family: $font-second;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  .side-bar__list {
+    list-style: none;
+    margin-bottom: 30px;
+
+    .side-bar__listItem {
+      display: inline-block;
+      width: 50%;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  }
+.side-bar__icon {
+  margin-top: 15px;
+  cursor: pointer;
+}
 }
