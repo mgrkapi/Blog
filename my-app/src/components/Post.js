@@ -48,6 +48,7 @@ function Post({isAuth}) {
                                         </div>
                                         <div className="post__text">{post.postText.substring(0, 260)}...</div>
                                         <h3>@{post.author.name}</h3>
+                                        <span>date{post.createdAt}</span>
                                     </div>
                                 </div>
                             )})}
