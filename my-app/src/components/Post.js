@@ -3,6 +3,8 @@ import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
 import {auth, db} from "../firebase";
 import "../style/home.scss";
 import "../style/post.scss";
+import {Link} from "react-router-dom";
+
 
 function Post({isAuth}) {
     const [postLists, setPostList] = useState([]);
@@ -42,9 +44,11 @@ function Post({isAuth}) {
                                     {post.imgUrl && <img src={post.imgUrl} alt="view"/>}
                                     <div className= "post__content">
                                         <div className="header">
+                                            <Link to = '/post/${post.id}'>
                                             <div className="title">
                                                 <h1>{post.title}</h1>
                                             </div>
+                                            </Link>
                                         </div>
                                         <div className="post__text">{post.postText.substring(0, 260)}...</div>
                                         <h3>@{post.author.name}</h3>
