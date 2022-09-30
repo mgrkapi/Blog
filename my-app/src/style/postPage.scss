@@ -7,6 +7,7 @@
 .singlePost {
   padding: 20px;
   margin-right: 0;
+  width: 100%;
 
   img {
     width: 100%;
@@ -18,11 +19,6 @@
     text-align: center;
     margin: 10px;
     font-size: 28px;
-  }
-  .singlePost__info {
-    font-size: 16px;
-    font-family: $font-second;
-    color: #b39656;
   }
   .singlePost__description {
     color: #666;

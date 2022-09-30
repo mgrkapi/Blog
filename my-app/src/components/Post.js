@@ -42,16 +42,18 @@ function Post({isAuth}) {
                                         )}
                                     </div>
                                     {post.imgUrl && <img src={post.imgUrl} alt="view"/>}
+
                                     <div className= "post__content">
+                                        <h3>Author: {post.author.name}</h3>
                                         <div className="header">
-                                            <Link to = '/post/${post.id}'>
+                                            <Link to = {`/post/${post.id}`} className = "link">
                                             <div className="title">
                                                 <h1>{post.title}</h1>
                                             </div>
                                             </Link>
                                         </div>
                                         <div className="post__text">{post.postText.substring(0, 260)}...</div>
-                                        <h3>@{post.author.name}</h3>
+
                                         <span>date{post.createdAt}</span>
                                     </div>
                                 </div>
