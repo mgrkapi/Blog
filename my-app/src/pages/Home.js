@@ -1,12 +1,14 @@
 import React from "react";
 import SideBar from "../components/SideBar";
 import Post from "../components/Post";
+import {useLocation} from "react-router-dom";
 
-function Home() {
+function Home(isAuth) {
+
     return (
         <div className= "home-container">
             <SideBar/>
-            <Post/>
+            <Post isAuth={isAuth}/>
         </div>
     )
 }

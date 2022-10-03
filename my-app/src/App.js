@@ -12,7 +12,6 @@ function App() {
     //function that says if the user is logged in or not
     const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
 
-
     const signUserOut = () => {
         signOut(auth).then(() => {
             localStorage.clear();

@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {addDoc, collection} from 'firebase/firestore';
+import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
 import {auth, db, storage} from "../firebase";
 import {useNavigate} from 'react-router-dom';
+
 
 function CreatePost({isAuth}) {
 
@@ -10,6 +11,7 @@ function CreatePost({isAuth}) {
     const [postText, setPostText] = useState("")
     const [image, setImage] = useState(null)
     const [imgUrl, setImgUrl] = useState("")
+    const [cat, setCat] = useState("")
 
     //submit the data to firestore and store it in the database
     const postsCollectionRef = collection(db, "posts");
@@ -20,7 +22,9 @@ function CreatePost({isAuth}) {
             title,
             postText,
             author: {name: auth.currentUser.displayName, id: auth.currentUser.uid},
-            imgUrl
+            imgUrl,
+            cat,
+            timeStamp: serverTimestamp()
         });
         navigate("/");
     };
@@ -101,6 +105,14 @@ function CreatePost({isAuth}) {
                           onChange={(event) => {
                               setPostText(event.target.value)
                           }}
+                />
+            </div>
+            <div className="post">
+                <label>Category</label>
+                <input placeholder="Category..."
+                       onChange={(event) => {
+                           setCat(event.target.value)
+                       }}
                 />
             </div>
             <input type="file" onChange={changeImage}/>

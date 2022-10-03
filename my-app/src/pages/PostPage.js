@@ -4,6 +4,7 @@ import SideBar from "../components/SideBar";
 import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase";
 import {useParams} from "react-router-dom";
+import SimpleDateTime from "react-simple-timestamp-to-date";
 
 
 
@@ -27,9 +28,16 @@ function PostPage() {
 
     return (
         <div className="post-page">
-
                     <div className="singlePost">
                         <img src={post.imgUrl} alt=""/>
+                        <p>{post.cat}</p>
+                        <time className= "date">
+                            <SimpleDateTime
+                            dateSeparator="/"
+                            format="YMD"
+                            showTime="0">{new Date(post.timeStamp.seconds * 1000)}
+                        </SimpleDateTime>
+                        </time>
                         <h1 className="singlePost__title">{post.title}</h1>
                         <p className="singlePost__description">{post.postText}</p>
                     </div>
