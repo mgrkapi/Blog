@@ -7,6 +7,7 @@ import {signOut} from "firebase/auth";
 import {auth} from "./firebase";
 import '../src/style/main.scss';
 import PostPage from './pages/PostPage';
+import Items from "./pages/Items";
 
 function App() {
     //function that says if the user is logged in or not
@@ -36,6 +37,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home isAuth = {isAuth} />}/>
                 <Route path="/post/:id" element={<PostPage/>}/>
+                <Route path="/items/:category" element={<Items />}/>
                 <Route path="/createpost" element={<CreatePost isAuth={isAuth} />}/>
                 {/*// passing a state as a prop to the login component*/}
                 <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}/>
