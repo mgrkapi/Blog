@@ -8,6 +8,7 @@ import {auth} from "./firebase";
 import '../src/style/main.scss';
 import PostPage from './pages/PostPage';
 import Items from "./pages/Items";
+import About from "./pages/About";
 
 function App() {
     //function that says if the user is logged in or not
@@ -24,6 +25,7 @@ function App() {
         <Router>
             <nav>
                 <Link to="/">Home</Link>
+                <Link to="/about">About me</Link>
 
                 {/*//if user is logged in, don't show login lin, just show log out button*/}
                 {!isAuth ? (
@@ -36,6 +38,7 @@ function App() {
             </nav>
             <Routes>
                 <Route path="/" element={<Home isAuth = {isAuth} />}/>
+                <Route path="/about" element={<About/>}/>
                 <Route path="/post/:id" element={<PostPage/>}/>
                 <Route path="/items/:category" element={<Items />}/>
                 <Route path="/createpost" element={<CreatePost isAuth={isAuth} />}/>

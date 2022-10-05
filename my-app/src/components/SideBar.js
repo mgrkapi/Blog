@@ -1,24 +1,9 @@
 import profile from "../pictures/profile.jpg";
 import "../style/sidebar.scss";
 import instagram from "../pictures/instagram.png";
-import {useEffect, useState} from "react";
-import {collection, getDocs} from "firebase/firestore";
-import {db} from "../firebase";
 import {Link} from "react-router-dom";
 
 function SideBar() {
-
-    const [categories, setCategories] = useState([]);
-    const postsCollectionRef = collection(db, "posts");
-
-    useEffect(() => {
-        const getPosts = async () => {
-            const data = await getDocs(postsCollectionRef);
-            setCategories(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        };
-        getPosts();
-    }, []);
-
 
     return (
                 <div className="side-bar">
@@ -30,13 +15,20 @@ function SideBar() {
                         </article>
                         <div className="side-bar__Item">
                             <span className="side-bar__title">DESTINATIONS</span>
-                            {categories.map((category) =>
-                            <ul className="side-bar__list" key = {category.id}>
-                            <Link to={`/items/${category.cat}`}>
-                            <li className="side-bar__listItem">{category.cat}</li>
-                            </Link>
+                            <ul className="side-bar__list">
+                                <Link to={`items/Warsaw`}>
+                                    <li className= "side-bar__listItem">Warsaw</li>
+                                </Link>
+                                <Link to={`items/Poland`}>
+                                    <li className= "side-bar__listItem">Poland</li>
+                                </Link>
+                                <Link to={`items/Europe`}>
+                                    <li className= "side-bar__listItem">Europe</li>
+                                </Link>
+                                <Link to={`items/World`}>
+                                    <li className= "side-bar__listItem">World</li>
+                                </Link>
                             </ul>
-                            )}
                         </div>
                         <div className="side-bar__Item">
                             <span className="side-bar__title">FOLLOW ME</span>

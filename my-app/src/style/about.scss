@@ -1,0 +1,37 @@
+@import 'root';
+
+.about-main {
+  background-color: #fcf7f4;
+  font-family: $font;
+
+  h1, h2 {
+    font-family: $font-third;
+    font-style: italic;
+  }
+}
+
+.about-header {
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+}
+
+.about-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    max-width: 1440px;
+    max-height: 500px;
+    width: 90%;
+    object-fit: cover;
+  }
+  p {
+    width: 80%;
+    line-height: 1.5em;
+    font-size: 16px;
+    text-align: justify;
+  }
+}
