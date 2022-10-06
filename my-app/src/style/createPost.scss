@@ -68,5 +68,27 @@
   button:active {
     background: rgba(245, 125, 144, 0.58);
   }
+  .image-upload {
+    display: flex;
+    justify-content: center;
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 100px;
+      color: $font-color;
+      background: rgba(245, 125, 144, 0.58);
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  .progress-bar {
+    height: 15px;
+    background: rgba(245, 125, 144, 0.58);
+    margin: 20px 0;
+    border-radius: 10px;
+  }
 
 }

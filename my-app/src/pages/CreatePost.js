@@ -3,6 +3,7 @@ import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
 import {auth, db, storage} from "../firebase";
 import {useNavigate} from 'react-router-dom';
+import {Progress} from "semantic-ui-react";
 
 
 function CreatePost({isAuth}) {
@@ -12,6 +13,7 @@ function CreatePost({isAuth}) {
     const [image, setImage] = useState(null)
     const [imgUrl, setImgUrl] = useState("")
     const [cat, setCat] = useState("")
+    const [progress, setProgress] = useState(0)
 
     //submit the data to firestore and store it in the database
     const postsCollectionRef = collection(db, "posts");
@@ -52,6 +54,7 @@ function CreatePost({isAuth}) {
             (snapshot) => {
                 // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                 const progress = Number(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setProgress(progress);
                 console.log('Upload is ' + progress + '% done');
                 switch (snapshot.state) {
                     case 'paused':
@@ -79,6 +82,7 @@ function CreatePost({isAuth}) {
                     return setImgUrl(downloadURL);
                 });
             });
+        return {progress}
     }
 
     useEffect(() => {
@@ -115,7 +119,11 @@ function CreatePost({isAuth}) {
                        }}
                 />
             </div>
-            <input type="file" onChange={changeImage}/>
+            <div className= "image-upload">
+                <label htmlFor="files" className="btn" >Select Image</label>
+                <input id="files" style={{display: "none"}} type="file" onChange={changeImage}/>
+            </div>
+            <div className="progress-bar" style={{width: progress + "%"}}></div>
             <button onClick={createPost}>Submit</button>
         </div>
     </div>;
