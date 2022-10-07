@@ -23,8 +23,8 @@ function About() {
                     <h2>What can you find on the blog?</h2>
                     <p>First of all Travels. I'm sharing ideas for where to go around Warsaw during the weekend or
                         places for short and long holidays to which I've travelled. There are my memories from trips but
-                        you'll also find there info of what's was worth to see, where to park, and what was the trip
-                        route </p>
+                        you'll also find there info of what's worth to see, where to park, and what was the trip
+                        route. If you wish to see more pictures you are welcome to visit my instagram. </p>
                     <h2>Why in English?</h2>
                     <p>You may wonder why I'm writing in English, well there are a couple of reasons. First of all I
                         really enjoy English and using it gives me a lot of fun but also challenges to improve. The

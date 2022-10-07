@@ -1,0 +1,15 @@
+@import "root";
+
+.banner-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+.banner-title {
+  font-family: $font-banner;
+  color: #f57d90;
+  font-size: 60px;
+  text-align: center;
+  letter-spacing: 6px;
+  margin: 20px 0 0;
+}

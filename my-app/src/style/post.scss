@@ -6,7 +6,6 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 20px;
-
   .post {
     display: flex;
     flex-wrap: wrap;
@@ -35,7 +34,7 @@
       h3 {
         font-size: 14px;
         font-family: $font-second;
-        color: #b39656;
+        color: rgba(229, 168, 182, 0.58);;
         text-align: left;
       }
 
