@@ -8,14 +8,18 @@ import PostPage from './pages/PostPage';
 import About from "./pages/About";
 import Items from "./pages/Items";
 import NavBar from "../src/components/NavBar";
+import React from "react";
+
+
 
 function App() {
     //function that says if the user is logged in or not
     const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
 
+
     return (
         <Router>
-            <NavBar/>
+           <NavBar/>
 
             <Routes>
                 <Route path="/" element={<Home isAuth={isAuth} />}/>

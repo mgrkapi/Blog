@@ -4,7 +4,7 @@ import {signOut} from "firebase/auth";
 import {auth} from "../firebase";
 import logo from "../pictures/logo.png";
 import {Link} from "react-router-dom";
-import "../style/navbar.scss";
+
 
 function NavBar() {
     //function that says if the user is logged in or not

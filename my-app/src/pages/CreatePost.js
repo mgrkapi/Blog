@@ -110,12 +110,17 @@ function CreatePost({isAuth}) {
                 />
             </div>
             <div className="post">
-                <label>Category</label>
-                <input placeholder="Category..."
-                       onChange={(event) => {
-                           setCat(event.target.value)
-                       }}
-                />
+                <label htmlFor="categories">Choose category:</label>
+                <select id="categories" name="categories"
+                        onChange={(event) => {
+                    setCat(event.target.value)
+                }}>
+                    <option value="Warsaw">Warsaw</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Europe">Europe</option>
+                    <option value="World">World</option>
+
+                </select>
             </div>
             <div className= "image-upload">
                 <label htmlFor="files" className="btn" >Select Image</label>

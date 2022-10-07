@@ -7,7 +7,7 @@
 }
 
 .createPostContainer {
-  width: 25rem;
+  width: 35rem;
   height: auto;
   margin-top: 30px;
   display: flex;
@@ -28,7 +28,7 @@
       border: 1px solid #ddd;
       color: #73736F;
       padding: 12px 20px;
-      outline-color: #dfc2c4;
+      outline-color: $outline-color;
       font-family: 'Lato', sans-serif;
       letter-spacing: 2px;
       margin-top: 5px;
@@ -48,14 +48,15 @@
       background-color: rgba(115, 115, 111, 0.41);
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
     }
+
   }
   button {
     color: $font-color;
-    background: #e4c9b5;
+    background: rgba(245, 125, 144, 0.58);
     border: 1px solid #e4c9b5;
     border-radius: 4px;
-    width: 5rem;
-    height: 2rem;
+    height: 40px;
+    width: $btn-width;
     margin: 0 auto 10px;
     font-size: 11px;
     letter-spacing: 1.5px;
@@ -71,14 +72,15 @@
   .image-upload {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     .btn {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 30px;
-      width: 100px;
+      height: $btn-height;
+      width: $btn-width;
       color: $font-color;
-      background: rgba(245, 125, 144, 0.58);
+      background: rgba(255, 182, 193, 0.66);
       padding: 5px;
       border-radius: 5px;
     }
@@ -90,5 +92,16 @@
     margin: 20px 0;
     border-radius: 10px;
   }
+  select {
+    width: 150px;
+    height: 35px;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    margin-top: 10px;
+    outline-color: $outline-color;
 
+    option {
+      background-color: rgba(243, 167, 184, 0.22);
+    }
+  }
 }

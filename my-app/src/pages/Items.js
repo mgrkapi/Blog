@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../firebase";
+import SimpleDateTime from 'react-simple-timestamp-to-date';
 
 const Items = () => {
 
@@ -28,13 +29,13 @@ const Items = () => {
             <div className="singlePost" key = {item.id}>
                 <img src={item.imgUrl} alt=""/>
                 <p>{item.cat}</p>
-                {/*/!*<time className= "date">*!/*/}
-                {/*/!*    <SimpleDateTime*!/*/}
-                {/*/!*        dateSeparator="/"*!/*/}
-                {/*/!*        format="YMD"*!/*/}
-                {/*/!*        showTime="0">{new Date(items.timeStamp.seconds * 1000)}*!/*/}
-                {/*/!*    </SimpleDateTime>*!/*/}
-                {/*</time>*/}
+                <time className= "date">
+                    <SimpleDateTime
+                        dateSeparator="/"
+                        format="YMD"
+                        showTime="0">{new Date(item.timeStamp.seconds * 1000)}
+                    </SimpleDateTime>
+                </time>
                 <h1 className="singlePost__title">{item.title}</h1>
                 <p className="singlePost__description">{item.postText}</p>
             </div>
