@@ -3,7 +3,6 @@ import {useParams} from "react-router-dom";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../firebase";
 
-
 const Items = () => {
 
     const {category} = useParams()

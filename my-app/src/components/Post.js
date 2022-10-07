@@ -5,6 +5,7 @@ import "../style/home.scss";
 import "../style/post.scss";
 import {Link} from "react-router-dom";
 import SimpleDateTime from 'react-simple-timestamp-to-date';
+import bin from "../pictures/bin.png";
 
 function Post({isAuth}) {
 
@@ -30,7 +31,7 @@ function Post({isAuth}) {
     return (
         <>
             <div className="posts">
-                {postLists.map((post) => {
+                {postLists.map((post,uid) => {
                     return (
                         <div className="post" key={post.id}>
                             <div className="deletePost">
@@ -39,8 +40,7 @@ function Post({isAuth}) {
                                         onClick={() => {
                                             deletePost(post.id);
                                         }}>
-                                        {" "}
-                                        &#128465;
+                                        <img src={bin} alt= "delete" />
                                     </button>
                                 )}
                             </div>

@@ -2,12 +2,13 @@ import React from "react";
 import SideBar from "../components/SideBar";
 import Post from "../components/Post";
 
-function Home(isAuth) {
+function Home({isAuth}) {
 
     return (
         <div className= "home-container">
-            <SideBar/>
+
             <Post isAuth={isAuth}/>
+            <SideBar/>
         </div>
     )
 }

@@ -3,8 +3,6 @@ import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
 import {auth, db, storage} from "../firebase";
 import {useNavigate} from 'react-router-dom';
-import {Progress} from "semantic-ui-react";
-
 
 function CreatePost({isAuth}) {
 
