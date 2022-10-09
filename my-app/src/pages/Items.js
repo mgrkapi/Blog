@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../firebase";
 import SimpleDateTime from 'react-simple-timestamp-to-date';
@@ -24,11 +24,12 @@ const Items = () => {
     }, [])
 
     return (
-        <div className="post-page">
+        <div className="posts">
             {items.map((item) => (
-            <div className="singlePost" key = {item.id}>
-                <img src={item.imgUrl} alt=""/>
-                <p>{item.cat}</p>
+            <div className="post" key = {item.id}>
+                <div className="post__content">
+                <img className = "image" src={item.imgUrl} alt=""/>
+                <p className= "category">{item.cat}</p>
                 <time className= "date">
                     <SimpleDateTime
                         dateSeparator="/"
@@ -36,8 +37,11 @@ const Items = () => {
                         showTime="0">{new Date(item.timeStamp.seconds * 1000)}
                     </SimpleDateTime>
                 </time>
-                <h1 className="singlePost__title">{item.title}</h1>
-                <p className="singlePost__description">{item.postText}</p>
+                <Link to={`/post/${item.id}`} className="link">
+                <h1 className="title">{item.title}</h1>
+                </Link>
+                <p className="post__description">{item.postText.substring(0, 260)}...</p>
+                </div>
             </div>
             ))}
         </div>

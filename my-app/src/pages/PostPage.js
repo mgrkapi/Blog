@@ -3,9 +3,7 @@ import '../style/postPage.scss';
 import SideBar from "../components/SideBar";
 import {doc, getDoc} from "firebase/firestore";
 import {db} from "../firebase";
-import {useLocation, useParams} from "react-router-dom";
-import SimpleDateTime from "react-simple-timestamp-to-date";
-
+import {Link, useParams} from "react-router-dom";
 
 
 function PostPage() {
@@ -30,7 +28,9 @@ function PostPage() {
         <div className="post-page">
             <div className="singlePost">
                 <img src={post.imgUrl} alt=""/>
-                <p>{post.cat}</p>
+                <Link to={`/items/${post.cat}`} className="link">
+                <p className= "category">{post.cat}</p>
+                </Link>
                 <h1 className="singlePost__title">{post.title}</h1>
                 <p className="singlePost__description">{post.postText}</p>
             </div>

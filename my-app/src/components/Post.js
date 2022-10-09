@@ -12,9 +12,11 @@ function Post({isAuth}) {
     const [postLists, setPostList] = useState([]);
     const postsCollectionRef = collection(db, "posts");
     const q = query(postsCollectionRef, orderBy("timeStamp", "desc"))
+    const [refstate, setRefstate] = useState(0);
 
 
     const deletePost = async (id) => {
+        setRefstate(refstate + 1);
         const postDoc = doc(db, 'posts', id);
         await deleteDoc(postDoc);
     };
@@ -25,7 +27,7 @@ function Post({isAuth}) {
             setPostList(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         };
         getPosts();
-    }, []);
+    }, [refstate]);
 
 
     return (
@@ -44,13 +46,13 @@ function Post({isAuth}) {
                                     </button>
                                 )}
                             </div>
-                            {post.imgUrl && <img src={post.imgUrl} alt="view"/>}
+                            {post.imgUrl && <img className= "image" src={post.imgUrl} alt="view"/>}
                             <div className="post__content">
-                                <h3>Author: {post.author.name}</h3>
+                                <h3 className= "author">Author: {post.author.name}</h3>
                                 <div className="header">
                                     <Link to={`/post/${post.id}`} className="link">
                                         <div className="title">
-                                            <h1>{post.title}</h1>
+                                            <h1 className= "title">{post.title}</h1>
                                         </div>
                                     </Link>
                                     <time className="date">
@@ -62,7 +64,7 @@ function Post({isAuth}) {
                                     </time>
 
                                 </div>
-                                <div className="post__text">{post.postText.substring(0, 260)}...</div>
+                                <div className="post__description">{post.postText.substring(0, 260)}...</div>
                             </div>
                         </div>
                     )

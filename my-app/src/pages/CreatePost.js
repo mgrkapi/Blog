@@ -115,6 +115,7 @@ function CreatePost({isAuth}) {
                         onChange={(event) => {
                     setCat(event.target.value)
                 }}>
+                    <option></option>
                     <option value="Warsaw">Warsaw</option>
                     <option value="Poland">Poland</option>
                     <option value="Europe">Europe</option>

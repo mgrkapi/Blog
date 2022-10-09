@@ -3,5 +3,10 @@
     display: flex;
   }
 }
+.side-bar {
+  @media (max-width: 620px) {
+    display: none;
+  }
+}
 
 

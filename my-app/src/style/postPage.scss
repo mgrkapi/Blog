@@ -9,12 +9,6 @@
   margin-right: 0;
   width: 100%;
 
-  p {
-    font-size: 14px;
-    font-family: $font-second;
-    color: #C38888
-  }
-
   img {
     width: 100%;
     height: 300px;
@@ -36,4 +30,10 @@
     font-weight: 600;
     font-size: 30px;
   }
+}
+
+.category {
+  font-size: 14px;
+  font-family: $font-second;
+  color: #C38888
 }
