@@ -46,7 +46,9 @@ function Post({isAuth}) {
                                     </button>
                                 )}
                             </div>
+                            <div className= "image">
                             {post.imgUrl && <img className= "image" src={post.imgUrl} alt="view"/>}
+                            </div>
                             <div className="post__content">
                                 <h3 className= "author">Author: {post.author.name}</h3>
                                 <div className="header">

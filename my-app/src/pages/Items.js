@@ -21,7 +21,7 @@ const Items = () => {
 
         getItems()
 
-    }, [])
+    }, [category])
 
     return (
         <div className="posts">

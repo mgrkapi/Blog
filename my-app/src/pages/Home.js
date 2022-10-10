@@ -6,11 +6,11 @@ import Banner from "../components/Banner";
 function Home({isAuth}) {
 
     return (
-        <div className= "home-container">
-           <Banner/>
-            <div className = "content">
-            <Post isAuth={isAuth}/>
-            <SideBar/>
+        <div className="home-container">
+            <Banner/>
+            <div className="content">
+                <Post isAuth={isAuth}/>
+                <SideBar/>
             </div>
         </div>
     )

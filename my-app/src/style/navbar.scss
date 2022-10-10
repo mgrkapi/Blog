@@ -7,26 +7,16 @@ nav {
   height: 80px;
   width: 100vw;
 
-.logo {
-  flex: 10%;
-  img {
-    height: 75px;
-    width: 80px;
-    border-radius: 50%;
-    margin-left: 20px;
-  }
-}
-  .nav-links {
-    flex: 60%;
-    display: flex;
-    justify-content: center;
-  }
-  .nav-login {
+  .logo {
     flex: 10%;
-    display: flex;
-    justify-content: center;
-  }
 
+    img {
+      height: 75px;
+      width: 80px;
+      border-radius: 50%;
+      margin-left: 20px;
+    }
+  }
   a {
     text-align: center;
     margin-right: 30px;
@@ -34,6 +24,25 @@ nav {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    padding: 5px;
+  }
+}
+  .menu {
+   flex: 45%;
+    ul {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      li {
+        list-style: none;
+      }
+    }
+  }
+  .nav-login {
+    flex: 10%;
+    display: flex;
+    justify-content: center;
+    padding-right: 10px;
   }
 
   button {
@@ -45,7 +54,77 @@ nav {
     color: white;
     cursor: pointer;
   }
+  @media (max-width: 865px) {
+    .logo {
+      flex: 20%;
+    }
+    .nav-login {
+      flex: 10%;
+    }
+    .menu {
+      flex: 0;
+    }
+    .hamburger {
+      flex: 30%;
+      text-align: right;
+    }
+  }
+
+.hamburger {
+  padding: 3px;
+  cursor: pointer;
+  display: none;
+  .hamburger-icon {
+    height: 25px;
+    width: 25px;
+  }
 
 }
+.hamburger-icon:hover {
+  background-color: rgba(239, 165, 182, 0.99);
+  border-radius: 5px;
+}
 
+@media screen and (max-width: 865px) {
+  .hamburger {
+    display: block;
+  }
+}
 
+@media screen and (max-width: 865px) {
+  .menu {
+    ul {
+      position: absolute;
+      top: 65px;
+      left: 0;
+      flex-direction: column;
+      width: 100vw;
+      height: 220px;
+      background-color: rgba(243, 167, 184, 0.81);
+      border-top: 1px solid rgba(243, 167, 184, 0.34);
+      text-align: center;
+      display: none;
+    }
+
+    li {
+      text-align: center;
+      margin: 10px;
+
+      a {
+        color: white;
+        width: 100%;
+        padding: 1.5rem 0;
+        font-size: 1.3rem;
+      }
+    }
+
+    li:hover {
+      background-color: rgba(243, 167, 184, 0.67);
+    }
+  }
+}
+@media screen and (max-width: 865px) {
+  .menu.expanded ul {
+    display: block;
+  }
+}
