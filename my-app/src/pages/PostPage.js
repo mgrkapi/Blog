@@ -28,7 +28,7 @@ function PostPage() {
         <div className="post-page">
             <div className="singlePost">
                 <img src={post.imgUrl} alt=""/>
-                <Link to={`/items/${post.cat}`} className="link">
+                <Link to={`/posts/${post.cat}`} className="link">
                 <p className= "category">{post.cat}</p>
                 </Link>
                 <h1 className="singlePost__title">{post.title}</h1>

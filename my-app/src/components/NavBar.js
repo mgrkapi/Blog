@@ -34,10 +34,10 @@ function NavBar({setIsAuth, isAuth}) {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
-                <li><Link to={`items/Warsaw`}>Warsaw</Link></li>
-                <li><Link to={`items/Poland`}>Poland</Link></li>
-                <li><Link to={`items/Europe`}>Europe</Link></li>
-                <li><Link to={`items/World`}>World</Link></li>
+                <li><Link to={`posts/Warsaw`}>Warsaw</Link></li>
+                <li><Link to={`posts/Poland`}>Poland</Link></li>
+                <li><Link to={`posts/Europe`}>Europe</Link></li>
+                <li><Link to={`posts/World`}>World</Link></li>
                 </ul>
             </div>
             <div className="nav-login">

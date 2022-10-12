@@ -16,16 +16,16 @@ function SideBar() {
                 <div className="side-bar__Item">
                     <span className="side-bar__title">DESTINATIONS</span>
                     <ul className="side-bar__list">
-                        <Link to={`items/Warsaw`}>
+                        <Link to={`posts/Warsaw`}>
                             <li className= "side-bar__listItem">Warsaw</li>
                         </Link>
-                        <Link to={`items/Poland`}>
+                        <Link to={`posts/Poland`}>
                             <li className= "side-bar__listItem">Poland</li>
                         </Link>
-                        <Link to={`items/Europe`}>
+                        <Link to={`posts/Europe`}>
                             <li className= "side-bar__listItem">Europe</li>
                         </Link>
-                        <Link to={`items/World`}>
+                        <Link to={`posts/World`}>
                             <li className= "side-bar__listItem">World</li>
                         </Link>
                     </ul>

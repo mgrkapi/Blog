@@ -25,8 +25,8 @@ function App() {
                 <Route path="/" element={<Home isAuth={isAuth} />}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/post/:id" element={<PostPage/>}/>
-                <Route path="/post/:id/items/:category" element={<Items/>}/>
-                <Route path="/items/:category" element={<Items/>}/>
+                <Route path="/post/:id/posts/:category" element={<Items/>}/>
+                <Route path="/posts/:category" element={<Items/>}/>
                 <Route path="/createpost" element={<CreatePost isAuth={isAuth} />}/>
                 {/*// passing a state as a prop to the login component*/}
                 <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}/>
