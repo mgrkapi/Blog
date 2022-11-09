@@ -13,17 +13,17 @@ Features of the site:
 You can check live demo here:  https://blog-5e102.web.app
 
 # Technologies
-React
-React Router
-Firebase Firestore & Auth
-Javascript
+React,
+React Router,
+Firebase Firestore & Auth,
+Javascript,
 Sass
 
 # Installation Guide
 
 Once you forked this repo. Make sure to run `npm install` command inside the folder to install all the packages.
 
-After installing packages. You must go to your firbase console and make a project. Copy project credentials and paste it to "firebase.js" file. Otherwise you won't be able to access database.
+After installing packages. You must go to your firebase console and make a project. Copy project credentials and paste it to "firebase.js" file. Otherwise you won't be able to access database.
 
 To run project enter `npm run` command.
 
